@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline"></ion-icon>
+        
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Crear</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="boton">
+    <form #formulario="ngForm" (ngSubmit)="onSubmit()" class="texto" > 
+
+      <icon-card>
+        <img src="assets/logo_app_3.png" class="ion-padding">
+      </icon-card>
+
+      <ion-item>
+        <ion-label>Nombres: </ion-label>
+        <ion-input type="text" placeholder="Nombres"
+                   name="name" value="" [(ngModel)]= "usuario.name"
+                   required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellidos: </ion-label>
+        <ion-input type="text" placeholder="Apellidos"
+                   name="apellido" value="" [(ngModel)]= "usuario.apellido"
+                   required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Rut: </ion-label>
+        <ion-input type="text" placeholder="Rut"
+                   name="rut" value="" [(ngModel)]= "usuario.rut"
+                   minLength="8" maxLength="10"
+                   pattern="^([0-9]+)-([kK0-9])$"
+                   required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Telefono: </ion-label>
+        <ion-input type="text" placeholder="telefono"
+                   name="telefono" value="" [(ngModel)]= "usuario.telefono"
+                   maxLength="9"
+                   required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha Nacimiento: </ion-label>
+        <ion-input type="date" placeholder="Fecha Nacimiento"
+                   name="cumple" value="" [(ngModel)]= "usuario.cumple"
+                   required>
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Email: </ion-label>
+        <ion-input type="email" placeholder="Email"
+                   name="email" value="" [(ngModel)]= "usuario.email"
+                   pattern="^([a-zA-Z0-9_\-\.]+)@duocuc.cl"
+                   required>
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Password: </ion-label>
+        <ion-input type="password"	 placeholder="Contraseña"
+                   name="password" value="" [(ngModel)]= "usuario.password"
+                   required>
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-button [disabled] ="formulario.invalid"
+              type="submit" class="boton" expand="block" routerLink="/inicio" (click)="showLoading()"> 
+        Enviar
+      </ion-button>
+
+    </form>
+  </ion-card>
+</ion-content>

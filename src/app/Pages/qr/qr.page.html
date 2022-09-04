@@ -1,0 +1,45 @@
+<ion-header class="cabeza">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline"></ion-icon>
+        
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Apartado de QR y Camara</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="titulo"><strong>Genere un QR</strong></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card>
+        <img src="assets/logo_app_3.png" class="ion-padding">
+      </ion-card>
+      <ion-button (click)="accion=!accion" expand="block" fill="clear" shape="round">
+        Docentes
+      </ion-button>
+      <ion-item class="texto, boton">
+        <ion-card-subtitle class="color"><strong>Genere el QR</strong>
+          <ion-button (click)="onClick()" expand="full" fill="outline" shape="round" routerLink="/codigo" *ngIf="accion">
+            Generar codigo QR
+          </ion-button>
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-button (click)="accion2=!accion2" expand="block" fill="clear" shape="round">
+        Alumnos
+      </ion-button>
+      <ion-item class="texto, boton">
+        <ion-card-subtitle class="color"><strong>Escanear el QR</strong>
+          <ion-button (click)="onClick()" expand="full" fill="outline" shape="round" routerLink="/camara" *ngIf="accion2">
+            Abrir la Camara
+          </ion-button>
+        </ion-card-subtitle>
+      </ion-item>
+      <!--<ion-label *ngIf="!permisos" color="danger"> No eres un docente no tienes habilitada esta opcion</ion-label>!-->
+    </ion-card-content>
+  </ion-card>
+</ion-content>
